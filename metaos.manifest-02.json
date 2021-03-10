@@ -76,6 +76,7 @@
                             "container": "containerId",
                             "target": "target1",
                         }
+                        //or 
                         "action": "action1"
                     }
                 ]
