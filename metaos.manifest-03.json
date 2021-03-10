@@ -1,7 +1,7 @@
 {
-    "targets": [
+    "runtimes": [
         {
-            "id": "target1",
+            "id": "runtime1",
             "code": {
                 "page": "http://demo.com/target1.html",
                 "script": "http://demo.com/target1.js"
@@ -9,7 +9,7 @@
             "lifetime": "long"
         },
         {
-            "id": "target2",
+            "id": "runtime2",
             "code": {
                 "page": "http://demo.com/target2.html",
                 "script": "http://demo.com/target2.js"
@@ -17,8 +17,7 @@
             "lifetime": "short",
             "functions": [
                 {
-                    "id": "func1",
-                    "label": "FOO",
+                    "id": "FOO",
                     "parameters": [
                         {
                             "name": "param1",
@@ -37,16 +36,31 @@
             "actions":[
                 {
                     "id": "ACTION1",
-                    "taskpaneId":"Taskpane1",
-                    "view": "sidepane",
                     "type": "navigation"
                 },
                 {
                     "id": "ACTION2",
-                    "type": "execution",
-                    "view": "hidden"
+                    "type": "execution"
                 }
             ]
+        }
+    ],
+
+    "containers": [
+        {
+            "id": "container1",
+            "title": "Page 1",
+            "view": "Taskpane" 
+        },
+        {
+            "id": "container2",
+            "title": "Page 2",
+            "view": "dialog" 
+        },
+        {
+            "id": "container3",
+            "title": "Page 3",
+            "view": "hidden" 
         }
     ],
 
@@ -55,7 +69,8 @@
             "key": {
                 "default": "Ctrl+ALT+A",
                 "windows": "Ctrl+ALT+A",
-                "Mac": "Ctrl+ALT+A"
+                "mac": "Ctrl+ALT+A",
+                "web": "Ctrl+ALT+A"
             },
             "action": "action1"
         }
@@ -73,10 +88,9 @@
                         "type": "Menu",
                         "launch": 
                         {
-                            "container": "containerId",
-                            "target": "target1",
+                            "container": "container1",
+                            "target": "runtime1"
                         }
-                        "action": "action1"
                     }
                 ]
             }
