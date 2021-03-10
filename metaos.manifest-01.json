@@ -1,0 +1,104 @@
+{
+    "runtimes": [
+        {
+            "id": "target1",
+            "code": {
+                "page": "http://demo.com/target1.html",
+                "script": "http://demo.com/target1.js"
+            },
+            "lifetime": "long"
+        },
+        {
+            "id": "target2",
+            "code": {
+                "page": "http://demo.com/target2.html",
+                "script": "http://demo.com/target2.js"
+            },
+            "lifetime": "short"
+        }
+    ],
+
+    "functions-group": [
+        {
+            "id": "func-group1",
+            "target": "target1",
+            "functions": [
+                {
+                    "id": "func1",
+                    "label": "FOO",
+                    "parameters": [
+                        {
+                            "name": "param1",
+                            "type": "string"
+                        },
+                        {
+                            "name": "param2",
+                            "type": "string"
+                        }
+                    ],
+                    "result":{
+                        "type": "number"
+                    }
+                }
+            ]
+        }
+    ],
+
+    "actions-group": [
+        {
+            "id": "action-group1",
+            "target": "target2",
+            "actions":[
+                {
+                    "id": "action1",
+                    "label": "ACTION1",
+                    "taskpaneId":"Taskpane1",
+                    "view": "sidepane",
+                    "type": "navigation"
+                },
+                {
+                    "id": "action2",
+                    "label": "ACTION2",
+                    "type": "execution",
+                    "view": "hidden"
+                }
+            ]
+        }
+    ],
+
+    "triggers" : {
+        "excel-Formula":
+        {
+            "namespace": "Cfsample",
+            "functions": "func-group1"
+        },
+        "shortcuts":[
+            {
+                "actions": "action-group1",
+                "combinations": [
+                    {
+                        "key": "Ctrl+ALT+A",
+                        "action": "action2"
+                    }
+                ]
+            }
+        ],
+        "ribbon":
+        {
+            "tabs": [
+                {
+                    "id": "tab1",
+                    "actions": "action-group1",
+                    "label": "label1",
+                    "buttons": [
+                        {
+                            "id": "button1",
+                            "type": "Menu",
+                            "action": "action1"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

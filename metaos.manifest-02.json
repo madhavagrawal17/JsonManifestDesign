@@ -1,0 +1,85 @@
+{
+    "targets": [
+        {
+            "id": "target1",
+            "code": {
+                "page": "http://demo.com/target1.html",
+                "script": "http://demo.com/target1.js"
+            },
+            "lifetime": "long"
+        },
+        {
+            "id": "target2",
+            "code": {
+                "page": "http://demo.com/target2.html",
+                "script": "http://demo.com/target2.js"
+            },
+            "lifetime": "short",
+            "functions": [
+                {
+                    "id": "func1",
+                    "label": "FOO",
+                    "parameters": [
+                        {
+                            "name": "param1",
+                            "type": "string"
+                        },
+                        {
+                            "name": "param2",
+                            "type": "string"
+                        }
+                    ],
+                    "result":{
+                        "type": "number"
+                    }
+                }
+            ],
+            "actions":[
+                {
+                    "id": "ACTION1",
+                    "taskpaneId":"Taskpane1",
+                    "view": "sidepane",
+                    "type": "navigation"
+                },
+                {
+                    "id": "ACTION2",
+                    "type": "execution",
+                    "view": "hidden"
+                }
+            ]
+        }
+    ],
+
+    "shortcuts":[
+        {
+            "key": {
+                "default": "Ctrl+ALT+A",
+                "windows": "Ctrl+ALT+A",
+                "Mac": "Ctrl+ALT+A"
+            },
+            "action": "action1"
+        }
+    ],
+    "ribbon":
+    {
+        "tabs": [
+            {
+                "id": "tab1",
+                "actions": "action-group1",
+                "label": "label1",
+                "buttons": [
+                    {
+                        "id": "button1",
+                        "type": "Menu",
+                        "launch": 
+                        {
+                            "container": "containerId",
+                            "target": "target1",
+                        }
+                        "action": "action1"
+                    }
+                ]
+            }
+        ]
+    }
+}
