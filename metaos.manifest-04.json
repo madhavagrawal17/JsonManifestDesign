@@ -1,0 +1,101 @@
+{
+    "runtimes": [
+        {
+            "id": "target1",
+            "code": {
+                "page": "http://demo.com/target1.html",
+                "script": "http://demo.com/target1.js"
+            },
+            "lifetime": "long"
+        },
+        {
+            "id": "target2",
+            "code": {
+                "page": "http://demo.com/target2.html",
+                "script": "http://demo.com/target2.js"
+            },
+            "lifetime": "short",
+
+            "actions":[
+                {
+                    "id": "ACTION2",
+                    "name": "Friendly name"
+                },
+                {
+                    "id": "foo-launch-taskpane",
+                    "name": "Friendly name",
+                    "view": "taskpane"
+                },
+                {
+                    "id": "foo-launch-dialog",
+                    "name": "Friendly name",
+                    "view": "dialog"
+                }
+            ],
+            "functions": [
+                {
+                    "id": "func1",
+                    "parameters": [
+                        {
+                            "name": "param1",
+                            "type": "string"
+                        },
+                        {
+                            "name": "param2",
+                            "type": "string"
+                        }
+                    ],
+                    "result":{
+                        "type": "number"
+                    }
+                }
+            ]
+        }
+    ],
+
+    "shortcuts":[
+        {
+            "key": {
+                "default": "Ctrl+ALT+A",
+                "windows": "Ctrl+ALT+A",
+                "Mac": "Ctrl+ALT+A"
+            },
+            "action": "action1"
+        },
+        {
+            "key": {
+                "default": "Ctrl+ALT+A",
+                "windows": "Ctrl+ALT+A",
+                "Mac": "Ctrl+ALT+A"
+            }
+        }
+    ],
+    "ribbon":
+    {
+        "tabs": [
+            {
+                "id": "tab1",
+                "actions": "action-group1",
+                "label": "label1",
+                "buttons": [
+                    {
+                        "id": "button1",
+                        "type": "Menu",
+                        "action": "foo-launch-taskpane",
+                        "taskpaneid": "taskpane1"
+                    },
+                    {
+                        "id": "button1",
+                        "type": "Menu",
+                        "action": "bar-launch-dialog"
+                    },
+                    {
+                        "id": "button1",
+                        "type": "Menu",
+                        "action": "action1"
+                    }
+                ]
+            }
+        ]
+    }
+}
